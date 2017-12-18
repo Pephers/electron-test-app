@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="titlebar-show" type="submit">Show title bar</button>
+    <button id="titlebar-hide" type="submit">Hide title bar</button>
+    <script>
+        const { ipcRenderer } = require('electron')
+
+        document.querySelector('#titlebar-show').addEventListener('click', () => {
+            ipcRenderer.send('message', 'titlebar-show')
+        }, false);
+
+        document.querySelector('#titlebar-hide').addEventListener('click', () => {
+            ipcRenderer.send('message', 'titlebar-hide')
+        }, false);
+    </script>
+</body>
+</html>
